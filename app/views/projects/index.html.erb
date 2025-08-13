@@ -6,10 +6,12 @@
 <p>
     Follow the progress here on <a href="https://github.com/gianniacquisto/code-rank">GitHub</a>.
 </p>
+
+<h2>List of Open Source projects:</h2>
 <div id="projects">
     <% @projects.each do |project| %>
         <div>
-            <%= project.name %>
+            <%= project.name %>: <a href=<%= project.url %>>GitHub</a> 
         </div>
     <%end%>
 </div>
