@@ -1,13 +1,14 @@
 # Name of your application. Used to uniquely configure containers.
-service: code_rank
+service: code-rank
 
 # Name of the container image.
-image: your-user/code_rank
+image: gianniacquisto/code-rank
 
 # Deploy to these servers.
 servers:
   web:
-    - 192.168.0.1
+    - 35.210.78.189
+    
   # job:
   #   hosts:
   #     - 192.168.0.1
@@ -19,13 +20,13 @@ servers:
 # Note: If using Cloudflare, set encryption mode in SSL/TLS setting to "Full" to enable CF-to-app encryption.
 proxy:
   ssl: true
-  host: app.example.com
+  host: code-rank.com
 
 # Credentials for your image host.
 registry:
   # Specify the registry server, if you're not using Docker Hub
   # server: registry.digitalocean.com / ghcr.io / ...
-  username: your-user
+  username: gianniacquisto
 
   # Always use an access token rather than real password when possible.
   password:
@@ -47,7 +48,7 @@ env:
     # WEB_CONCURRENCY: 2
 
     # Match this to any external database server to configure Active Record correctly
-    # Use code_rank-db for a db accessory server on same machine via local kamal docker network.
+    # Use store-db for a db accessory server on same machine via local kamal docker network.
     # DB_HOST: 192.168.0.2
 
     # Log everything from Rails
@@ -65,7 +66,7 @@ aliases:
 # Use a persistent storage volume for sqlite database files and local Active Storage files.
 # Recommended to change this to a mounted volume path that is backed up off server.
 volumes:
-  - "code_rank_storage:/rails/storage"
+  - "store_storage:/rails/storage"
 
 
 # Bridge fingerprinted assets, like JS and CSS, between versions to avoid
@@ -88,8 +89,12 @@ builder:
   #   - RAILS_MASTER_KEY
 
 # Use a different ssh user than root
-# ssh:
-#   user: app
+ssh:
+  user: gianni
+  port: 22               # only change if you use a custom port
+  keys:
+    - "~/.ssh/store"    # replace with the path to the private key that can auth as gianni
+
 
 # Use accessory services (secrets come from .kamal/secrets).
 # accessories:
