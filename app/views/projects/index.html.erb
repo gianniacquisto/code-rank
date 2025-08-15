@@ -15,14 +15,18 @@
     <thead>
       <tr>
         <th><%= sortable "name" %></th>
+        <th><%= sortable "category" %></th>
         <th><%= sortable "url" %></th>
+        <th><%= sortable "stars" %></th>
       </tr>
     </thead>
     <tbody>
       <% @projects.each do |project| %>
         <tr>
           <td><%= project.name %></td>
+          <td><%= project.category %></td>
           <td><a href="<%= project.url %>"><%= project.url %></a></td>
+          <td><%= project.stars %></td>
         </tr>
       <% end %>
     </tbody>
