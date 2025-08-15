@@ -8,10 +8,23 @@
 </p>
 
 <h2>List of Open Source projects:</h2>
+<p>Below you can find the name, category and GitHub link to the project.</p>
+
 <div id="projects">
-    <% @projects.each do |project| %>
-        <div>
-            <%= project.name %>: <a href=<%= project.url %>>GitHub</a> 
-        </div>
-    <%end%>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+          <td><%= project.name %></td>
+          <td><a href="<%= project.url %>"><%= project.url %></a></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
