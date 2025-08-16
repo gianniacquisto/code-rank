@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  allow_unauthenticated_access only: %i[ index ]
   helper_method :sort_column, :sort_direction
 
   def index
