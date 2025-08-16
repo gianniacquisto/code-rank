@@ -23,6 +23,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav>
+      <%= link_to "Home", root_path %> |
+      <%= link_to "Add new project", new_project_path %>
+      <%= button_to "Log out", session_path, method: :delete if authenticated? %>
+    </nav>
+
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
