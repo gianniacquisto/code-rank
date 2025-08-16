@@ -30,6 +30,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-      params.expect(project: [ :name, :category, :url])
+      params.expect(project: [ :name, :category, :url ])
     end
 end
