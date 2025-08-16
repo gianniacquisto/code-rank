@@ -21,6 +21,9 @@ servers:
 proxy:
   ssl: true
   host: code-rank.com
+  healthcheck:
+    path: /up
+    timeout: 30
 
 # Credentials for your image host.
 registry:
