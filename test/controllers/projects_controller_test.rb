@@ -1,7 +1,8 @@
 require "test_helper"
 
 class ProjectsControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should get projects" do
+    get projects_url
+    assert_response :success
+  end
 end
