@@ -1,0 +1,30 @@
+<h1>Sign up</h1>
+
+<%= form_with model: @user do |form| %>
+  <% if @user.errors.any? %>
+    <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+  <% end %>
+
+  <div>
+    <%= form.label :email_address %><br>
+    <%= form.text_field :email_address %>
+  </div>
+
+  <div>
+    <%= form.label :password %><br>
+    <%= form.text_field :password %>
+  </div>
+
+  <div>
+    <%= form.label :password_confirmation %><br>
+    <%= form.text_field :password_confirmation %>
+  </div>
+
+  <div>
+    <%= form.submit "Sign up" %>
+  </div>
+<% end %>
