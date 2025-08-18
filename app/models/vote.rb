@@ -4,5 +4,5 @@ class Vote < ApplicationRecord
 
     validates :project_id, presence: true
     validates :user_id, presence: true
-    validates :vote, numericality: { in: [-1, 1] }
+    validates :vote, numericality: { in: -1..1 }
 end
