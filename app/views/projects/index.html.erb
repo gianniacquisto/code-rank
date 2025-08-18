@@ -11,17 +11,6 @@
 
 <p>Below you can find the name, category and GitHub link to the project.</p>
 
-<div class="sort-controls-wrapper">
-  <div class="sort-dropdown">
-    <%= form_with url: projects_path, method: :get, local: true do |form| %>
-      <%= select_tag :sort, options_for_select([["Name", "name"], ["Category", "category"], ["Stars", "stars"]], params[:sort]),
-                     { include_blank: "Select Sort Order", onchange: "this.form.submit()" } %>
-      <%= select_tag :direction, options_for_select([["Ascending", "asc"], ["Descending", "desc"]], params[:direction]),
-                     { onchange: "this.form.submit()" } %>
-    <% end %>
-  </div>
-</div>
-
 <div id="projects">
   <ul class="project-list">
     <% @projects.each do |project| %>
