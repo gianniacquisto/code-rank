@@ -27,11 +27,19 @@
     <% @projects.each do |project| %>
       <li>
         <div class="project-card">
-          <h3><%= project.name %></h3>
+          <h3>          
+            <div class="voting-buttons">
+              <button class="vote-up" title="Upvote">▲</button>
+              <button class="vote-down" title="Downvote">▼</button>
+            </div>
+            <strong><%= project.name %></strong>
+          </h3>
           <p><strong>Category:</strong> <%= project.category %></p>
           <p><strong>GitHub:</strong> <a href="<%= project.url %>"><%= project.url %></a></p>
-          <p><strong>Stars:</strong> <%= project.stars %></p>
+          <p><strong>Votes:</strong> <%= project.net_votes %></p>
+
         </div>
+        
       </li>
     <% end %>
   </ul>
