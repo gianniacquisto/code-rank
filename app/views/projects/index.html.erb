@@ -29,8 +29,9 @@
         <div class="project-card">
           <h3>          
             <div class="voting-buttons">
-              <button class="vote-up" title="Upvote">▲</button>
-              <button class="vote-down" title="Downvote">▼</button>
+              <%= button_to "▲", votes_path(project_id: project.id, vote: 1), method: :post, class: "vote-up" %>
+              <%= button_to "▼", votes_path(project_id: project.id, vote: -1), method: :post, class: "vote-down" %>
+
             </div>
             <strong><%= project.name %></strong>
           </h3>
