@@ -5,9 +5,9 @@ class VotesController < ApplicationController
     @vote.vote = params[:vote]
 
     if @vote.save
-      redirect_to projects_path, notice: 'Vote was successfully recorded.'
+      redirect_to projects_path, notice: "Vote was successfully recorded."
     else
-      redirect_to projects_path, alert: 'There was an error recording your vote.'
+      redirect_to projects_path, alert: "There was an error recording your vote."
     end
   end
 
