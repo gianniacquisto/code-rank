@@ -1,4 +1,4 @@
-class AddUsersToVote < ActiveRecord::Migration[8.0]
+class AddUsersToVotes < ActiveRecord::Migration[8.0]
   def change
     add_reference :votes, :user, null: false, foreign_key: true
   end
