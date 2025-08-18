@@ -11,25 +11,37 @@
 
 <p>Below you can find the name, category and GitHub link to the project.</p>
 
+<div class="sort-controls-wrapper">
+  <div class="sort-dropdown">
+    <%= form_with url: projects_path, method: :get, local: true do |form| %>
+      <%= select_tag :sort, options_for_select([["Name", "name"], ["Category", "category"], ["Stars", "stars"]], params[:sort]),
+                     { include_blank: "Select Sort Order", onchange: "this.form.submit()" } %>
+      <%= select_tag :direction, options_for_select([["Ascending", "asc"], ["Descending", "desc"]], params[:direction]),
+                     { onchange: "this.form.submit()" } %>
+    <% end %>
+  </div>
+</div>
+
 <div id="projects">
-  <table>
-    <thead>
-      <tr>
-        <th><%= sortable "name" %></th>
-        <th><%= sortable "category" %></th>
-        <th><%= sortable "url" %></th>
-        <th><%= sortable "stars" %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @projects.each do |project| %>
-        <tr>
-          <td><%= project.name %></td>
-          <td><%= project.category %></td>
-          <td><a href="<%= project.url %>"><%= project.url %></a></td>
-          <td><%= project.stars %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <ul class="project-list">
+    <% @projects.each do |project| %>
+      <li>
+        <div class="project-card">
+          <h3>          
+            <div class="voting-buttons">
+              <%= button_to "▲", votes_path(project_id: project.id, vote: 1), method: :post, class: "vote-up" %>
+              <%= button_to "▼", votes_path(project_id: project.id, vote: -1), method: :post, class: "vote-down" %>
+
+            </div>
+            <strong><%= project.name %></strong>
+          </h3>
+          <p><strong>Category:</strong> <%= project.category %></p>
+          <p><strong>GitHub:</strong> <a href="<%= project.url %>"><%= project.url %></a></p>
+          <p><strong>Votes:</strong> <%= project.net_votes %></p>
+
+        </div>
+        
+      </li>
+    <% end %>
+  </ul>
 </div>
