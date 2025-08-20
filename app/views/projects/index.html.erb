@@ -24,8 +24,7 @@
             </div>
             <strong><%= project.name %></strong>
           </h3>
-          <p><strong>Category:</strong> <%= project.category %></p>
-          <p><strong>GitHub:</strong> <a href="<%= project.url %>"><%= project.url %></a></p>
+          <p><strong>GitHub:</strong> <a href="https://github.com/<%= project.name %>">Link</a></p>
           <p><strong>Votes:</strong> <%= project.net_votes %></p>
 
         </div>
@@ -34,3 +33,5 @@
     <% end %>
   </ul>
 </div>
+
+<%== pagy_nav(@pagy) %>
