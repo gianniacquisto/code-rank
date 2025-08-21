@@ -17,11 +17,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_20_205316) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "repositories", force: :cascade do |t|
-    t.text "name", null: false
-    t.index ["name"], name: "idx_repositories_name"
-  end
-
   create_table "sessions", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "ip_address"
