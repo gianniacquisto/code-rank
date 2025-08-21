@@ -6,15 +6,11 @@ namespace :data do
 
     puts "Starting bulk import..."
 
-    # # PRAGMA tuning
-    # pragma_sql = <<~SQL
-    #   PRAGMA synchronous = OFF;
-    #   PRAGMA journal_mode = OFF;
-    #   PRAGMA temp_store = MEMORY;
-    #   PRAGMA mmap_size = 34359738368;
-    #   PRAGMA cache_size = -1048576;
-    #   PRAGMA locking_mode = EXCLUSIVE;
-    # SQL
+    # PRAGMA tuning
+    pragma_sql = <<~SQL
+      PRAGMA synchronous = NORMAL;
+      PRAGMA journal_mode = WAL;
+    SQL
 
     # Open3.popen2("sqlite3 #{db_file}") { |stdin, stdout| stdin.puts(pragma_sql); stdin.close }
 
@@ -42,7 +38,7 @@ namespace :data do
     Open3.popen2("sqlite3 #{db_file}") { |stdin, stdout| stdin.puts(schema_sql); stdin.close }
 
     # Import all CSV files in directory
-    Dir.glob("#{csv_dir}/*").each do |file|
+    Dir.glob("#{csv_dir}/watchevent-over-1000.csv").each do |file|
       puts "Importing #{file}..."
       Open3.popen2("sqlite3 #{db_file}") do |stdin, stdout|
         stdin.puts <<~SQL
@@ -68,7 +64,7 @@ namespace :data do
     # Re-enable safe modes and create index
     # ActiveRecord::Base.connection.execute("PRAGMA journal_mode = WAL;")
     # ActiveRecord::Base.connection.execute("PRAGMA synchronous = NORMAL;")
-    # ActiveRecord::Base.connection.execute("CREATE INDEX idx_repositories_name ON repositories(name);")
+    ActiveRecord::Base.connection.execute("CREATE INDEX projects_name ON projects(name);")
 
     puts "Bulk import complete!"
   end
