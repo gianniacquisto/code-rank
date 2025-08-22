@@ -1,7 +1,13 @@
+require 'open3'
+
 namespace :data do
   desc "Bulk import repositories from CSV"
   task import: :environment do
-    db_file   = Rails.root.join("storage", "development.sqlite3")
+    db_file = if Rails.env.production?
+                Rails.root.join("storage", "production.sqlite3")
+              else
+                Rails.root.join("storage", "development.sqlite3")
+              end
     csv_dir   = Rails.root.join("storage", "data")
 
     puts "Starting bulk import..."
@@ -11,22 +17,6 @@ namespace :data do
       PRAGMA synchronous = NORMAL;
       PRAGMA journal_mode = WAL;
     SQL
-
-    # Open3.popen2("sqlite3 #{db_file}") { |stdin, stdout| stdin.puts(pragma_sql); stdin.close }
-
-    # Schema creation
-    # schema_sql = <<~SQL
-    #   DROP TABLE IF EXISTS repositories;
-    #   CREATE TABLE repositories (
-    #     id   INTEGER PRIMARY KEY AUTOINCREMENT,
-    #     name TEXT NOT NULL
-    #   );
-
-    #   DROP TABLE IF EXISTS repositories_import;
-    #   CREATE TABLE repositories_import (
-    #     name TEXT
-    #   );
-    # SQL
 
     schema_sql = <<~SQL
 
@@ -61,9 +51,6 @@ namespace :data do
       stdin.close
     end
 
-    # Re-enable safe modes and create index
-    # ActiveRecord::Base.connection.execute("PRAGMA journal_mode = WAL;")
-    # ActiveRecord::Base.connection.execute("PRAGMA synchronous = NORMAL;")
     ActiveRecord::Base.connection.execute("CREATE INDEX projects_name ON projects(name);")
 
     puts "Bulk import complete!"
