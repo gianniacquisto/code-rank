@@ -26,6 +26,9 @@
     <%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
     <%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
     <nav class="main-nav">
+      <div class="nav-brand">
+        <%= link_to "CodeRank", root_path, class: "nav-link" %>
+      </div>
       <ul class="nav-links">
         <li><%= link_to "Home", root_path, class: "nav-link" %></li>
         <li><%= link_to "Add new project", new_project_path, class: "nav-link" %></li>
