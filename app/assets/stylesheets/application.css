@@ -173,6 +173,20 @@ th a.current.desc::after {
     color: #ffffff;
 }
 
+.nav-brand .nav-link {
+    color: #61dafb;
+    /* Light blue for brand link */
+    font-size: 1.5em;
+    /* Larger font size for brand */
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-brand .nav-link:hover {
+    color: #ffffff;
+    /* White on hover */
+}
+
 .nav-links {
     list-style: none;
     margin: 0;
