@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   allow_unauthenticated_access only: %i[ index ]
 
   def index
-    @projects = Project.all
+    @pagy, @projects = pagy(Project.all)
   end
 
   def new
