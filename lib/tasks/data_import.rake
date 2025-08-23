@@ -1,13 +1,13 @@
-require 'open3'
+require "open3"
 
 namespace :data do
   desc "Bulk import repositories from CSV"
   task import: :environment do
     db_file = if Rails.env.production?
                 Rails.root.join("storage", "production.sqlite3")
-              else
+    else
                 Rails.root.join("storage", "development.sqlite3")
-              end
+    end
     csv_dir   = Rails.root.join("storage", "data")
 
     puts "Starting bulk import..."
