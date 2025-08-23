@@ -44,14 +44,20 @@ namespace :data do
     Open3.popen2("sqlite3 #{db_file}") do |stdin, stdout|
       stdin.puts <<~SQL
         INSERT INTO projects (name, created_at, updated_at)
-        SELECT name, '#{current_time}', '#{current_time}'
-        FROM projects_import;
+        SELECT pi.name, '#{current_time}', '#{current_time}'
+        FROM projects_import pi
+        WHERE NOT EXISTS (
+          SELECT 1
+          FROM projects p
+          WHERE p.name = pi.name
+        );
         DROP TABLE projects_import;
       SQL
       stdin.close
     end
 
-    ActiveRecord::Base.connection.execute("CREATE INDEX projects_name ON projects(name);")
+
+    ActiveRecord::Base.connection.execute("CREATE INDEX IF NOT EXISTS projects_name ON projects(name);")
 
     puts "Bulk import complete!"
   end
