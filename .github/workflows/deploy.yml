@@ -8,7 +8,7 @@ on:
       - main
   workflow_dispatch:
 
-    
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -19,6 +19,13 @@ jobs:
       KAMAL_REGISTRY_PASSWORD: ${{ secrets.KAMAL_REGISTRY_PASSWORD }}
       # KAMAL_REGISTRY_USERNAME: ${{ secrets.KAMAL_REGISTRY_USERNAME }}
     steps:
+      - name: Debug SSH Key
+        run: |
+          if [ -z "${{ secrets.SSH_PRIVATE_KEY }}" ]; then
+            echo "SSH_PRIVATE_KEY is EMPTY"
+          else
+            echo "SSH_PRIVATE_KEY is PRESENT (hidden)"
+          fi
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
         with:
