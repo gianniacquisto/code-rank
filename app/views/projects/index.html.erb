@@ -16,17 +16,15 @@
     <% @projects.each do |project| %>
       <li>
         <div class="project-card">
-          <h3>          
-            <div class="voting-buttons">
-              <%= button_to "▲", votes_path(project_id: project.id, vote: 1), method: :post, class: "vote-up" %>
-              <%= button_to "▼", votes_path(project_id: project.id, vote: -1), method: :post, class: "vote-down" %>
-
-            </div>
-            <strong><%= project.name %></strong>
-          </h3>
-          <p><strong>GitHub:</strong> <a href="https://github.com/<%= project.name %>">Link</a></p>
-          <p><strong>Votes:</strong> <%= project.net_votes %></p>
-
+              
+          <div>
+            <h3><%= project.name %></h3>
+            <p><strong>GitHub:</strong> <a href="https://github.com/<%= project.name %>">Link</a></p>
+            <p><strong>Votes:</strong> <%= project.net_votes %></p>
+          </div>
+          <div>
+            <%= button_to "Vote", votes_path(project_id: project.id, vote: 1), method: :post, class: "vote-up" %>
+          </div>
         </div>
         
       </li>
