@@ -20,7 +20,7 @@ servers:
 # Note: If using Cloudflare, set encryption mode in SSL/TLS setting to "Full" to enable CF-to-app encryption.
 proxy:
     ssl: true
-    host: 116.203.97.159
+    host: code-rank.com
     healthcheck:
         path: /up
         timeout: 30
@@ -68,7 +68,7 @@ aliases:
 # Use a persistent storage volume for sqlite database files and local Active Storage files.
 # Recommended to change this to a mounted volume path that is backed up off server.
 volumes:
-    - "/mnt/data/code-rank-storage:/rails/storage"
+    - "code-rank-storage:/rails/storage"
 
 # Bridge fingerprinted assets, like JS and CSS, between versions to avoid
 # hitting 404 on in-flight requests. Combines all files from new and old
