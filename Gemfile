@@ -28,8 +28,6 @@ gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
 
-gem "pagy"
-
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
@@ -47,7 +45,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
-  gem "brakeman", require: false
+  gem "brakeman", "~> 7.1.1"
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
