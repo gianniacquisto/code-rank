@@ -28,7 +28,7 @@ namespace :data do
     Open3.popen2("sqlite3 #{db_file}") { |stdin, stdout| stdin.puts(schema_sql); stdin.close }
 
     # Import all CSV files in directory
-    Dir.glob("#{csv_dir}/watchevent-over-1000.csv").each do |file|
+    Dir.glob("#{csv_dir}/top_100.csv").each do |file|
       puts "Importing #{file}..."
       Open3.popen2("sqlite3 #{db_file}") do |stdin, stdout|
         stdin.puts <<~SQL
