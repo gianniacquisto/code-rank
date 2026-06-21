@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Seed the production database with open-source technologies.
+# Run this ONCE after deploying the migration:
+#   bin/seed-production
+set -euo pipefail
+
+echo "Seeding production database with open-source technologies..."
+bin/kamal app exec --ruby 'rails db:seed'
+echo "Done."
