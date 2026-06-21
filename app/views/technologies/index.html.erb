@@ -17,9 +17,21 @@
 
           <div>
             <h3>
-              <%= render partial: "technologies/star_button", locals: { technology: technology, starred: @user_starred_technology_ids.include?(technology.id) } %>
+              <% if authenticated? %>
+                <% if @user_starred_technology_ids.include?(technology.id) %>
+                  <%= button_to technology_unstar_star_path(technology_id: technology.id), method: :delete, class: "star-btn star-active" do %>
+                    <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <% end %>
+                <% else %>
+                  <%= button_to technology_stars_path(technology_id: technology.id), method: :post, class: "star-btn star-inactive" do %>
+                    <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <% end %>
+                <% end %>
+              <% else %>
+                <svg class="star-icon star-inactive disabled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <% end %>
               <%= technology.name %>
-              <span class="star-count" id="star-count-<%= technology.id %>"><%= @star_counts[technology.id] || 0 %></span>
+              <span class="star-count"><%= @star_counts[technology.id] || 0 %></span>
             </h3>
             <% if technology.github_url %>
               <p><strong>GitHub:</strong> <a href="<%= technology.github_url %>"><%= technology.github_url %></a></p>
