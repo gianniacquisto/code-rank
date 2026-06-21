@@ -1,0 +1,7 @@
+<%= turbo_stream.replace "star-#{@technology.id}" do %>
+  <%= render partial: "technologies/star_button", locals: { technology: @technology, starred: false } %>
+<% end %>
+
+<%= turbo_stream.replace "star-count-#{@technology.id}" do %>
+  <span id="star-count-<%= @technology.id %>"><%= @technology.star_count %></span>
+<% end %>
