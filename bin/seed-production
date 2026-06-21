@@ -5,5 +5,5 @@
 set -euo pipefail
 
 echo "Seeding production database with open-source technologies..."
-bin/kamal app exec --ruby 'rails db:seed'
+bin/kamal app exec -- bundle exec rails db:seed
 echo "Done."
