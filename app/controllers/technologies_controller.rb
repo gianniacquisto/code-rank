@@ -3,6 +3,12 @@ class TechnologiesController < ApplicationController
 
   def index
     @technologies = Technology.all
+    @star_counts = Star.group(:technology_id).count
+    @user_starred_technology_ids = if authenticated?
+      Star.where(user: Current.session.user).pluck(:technology_id)
+    else
+      []
+    end
   end
 
   def new

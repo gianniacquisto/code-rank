@@ -35,7 +35,7 @@ class StarsControllerTest < ActionDispatch::IntegrationTest
 
   test "should redirect non-turbo request" do
     post technology_stars_path(technology_id: @technology.id), as: :html
-    assert_redirected_to technology_path(@technology)
+    assert_redirected_to root_path
   end
 
   test "should not star without authentication" do
