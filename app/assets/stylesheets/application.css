@@ -319,32 +319,18 @@ th a.current.desc::after {
 }
 
 /* Star Button Styling */
-.tech-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 8px;
-}
-
-.tech-header h3 {
-    margin: 0;
-}
-
-.tech-meta {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
 .star-btn {
     background: none;
     border: none;
-    padding: 4px;
+    padding: 0;
     cursor: pointer;
     border-radius: 4px;
     transition: transform 0.2s ease, opacity 0.2s ease;
     display: inline-flex;
     align-items: center;
+    vertical-align: middle;
+    line-height: 1;
+    flex-shrink: 0;
 }
 
 .star-btn:hover {
@@ -367,6 +353,7 @@ th a.current.desc::after {
 
 .star-icon {
     transition: fill 0.2s ease, stroke 0.2s ease, color 0.2s ease;
+    display: block;
 }
 
 .star-inactive .star-icon {
@@ -401,9 +388,11 @@ th a.current.desc::after {
 }
 
 .star-count {
-    font-size: 0.9em;
+    font-size: 0.85em;
     color: #586069;
     font-weight: 500;
+    margin-left: 4px;
+    vertical-align: middle;
 }
 
 /* Voting Buttons (legacy — kept for reference) */

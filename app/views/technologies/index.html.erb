@@ -16,13 +16,11 @@
         <div class="project-card">
 
           <div>
-            <div class="tech-header">
-              <h3><%= technology.name %></h3>
-              <div class="tech-meta">
-                <%= render partial: "technologies/star_button", locals: { technology: technology, starred: @user_starred_technology_ids.include?(technology.id) } %>
-                <span class="star-count" id="star-count-<%= technology.id %>"><%= @star_counts[technology.id] || 0 %> star<%= "s" if (@star_counts[technology.id] || 0) != 1 %></span>
-              </div>
-            </div>
+            <h3>
+              <%= render partial: "technologies/star_button", locals: { technology: technology, starred: @user_starred_technology_ids.include?(technology.id) } %>
+              <%= technology.name %>
+              <span class="star-count" id="star-count-<%= technology.id %>"><%= @star_counts[technology.id] || 0 %></span>
+            </h3>
             <% if technology.github_url %>
               <p><strong>GitHub:</strong> <a href="<%= technology.github_url %>"><%= technology.github_url %></a></p>
             <% end %>
