@@ -1,8 +1,13 @@
 <%= form_with model: technology do |form| %>
   <div>
     <%= form.label :name %>
-      <%= form.text_field :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :github_url %>
+    <%= form.text_field :github_url, placeholder: "https://github.com/owner/repo" %>
   </div>
 
   <%= form.submit %>
-    <% end %>
+<% end %>

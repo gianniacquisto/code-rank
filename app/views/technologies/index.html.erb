@@ -6,12 +6,8 @@
 <p>
     Follow the progress here on <a href="https://github.com/gianniacquisto/code-rank">GitHub</a>.
 </p>
-<p>
-    More information will follow!
-</p> 
-<h2>List of Open Source technologies:</h2>
 
-<p>Below you can find the name, category and GitHub link to the technology.</p>
+<h2>List of Open Source technologies:</h2>
 
 <div id="technologies">
   <ul class="project-list">
@@ -21,7 +17,9 @@
               
           <div>
             <h3><%= technology.name %></h3>
-            <p><strong>GitHub:</strong> <a href="https://github.com/<%= technology.name %>">Link</a></p>
+            <% if technology.github_url %>
+              <p><strong>GitHub:</strong> <a href="<%= technology.github_url %>"><%= technology.github_url %></a></p>
+            <% end %>
             <p><strong>Votes:</strong> <%= technology.net_votes %></p>
           </div>
           <div>

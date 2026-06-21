@@ -10,37 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_06_21_090946) do
-  create_table "technologies", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+ActiveRecord::Schema[8.1].define(version: 2026_06_21_143104) do
   create_table "sessions", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "ip_address"
-    t.string "user_agent"
     t.datetime "created_at", null: false
+    t.string "ip_address"
     t.datetime "updated_at", null: false
+    t.string "user_agent"
+    t.integer "user_id", null: false
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
+  create_table "technologies", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "github_url"
+    t.string "name"
+    t.datetime "updated_at", null: false
+    t.index ["github_url"], name: "index_technologies_on_github_url"
+  end
+
   create_table "users", force: :cascade do |t|
+    t.boolean "adminFlag"
+    t.datetime "created_at", null: false
     t.string "email_address", null: false
     t.string "password_digest", null: false
-    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "adminFlag"
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
   create_table "votes", force: :cascade do |t|
     t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "vote"
     t.integer "technology_id", null: false
+    t.datetime "updated_at", null: false
     t.integer "user_id", null: false
+    t.integer "vote"
     t.index ["technology_id"], name: "index_votes_on_technology_id"
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
