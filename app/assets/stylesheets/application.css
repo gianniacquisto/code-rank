@@ -319,13 +319,33 @@ th a.current.desc::after {
 }
 
 /* Star Button Styling */
+.tech-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.tech-name {
+    color: #0366d6;
+    margin: 0;
+}
+
+.tech-stars {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
 .star-btn {
     background: none;
     border: none;
     padding: 0;
     cursor: pointer;
-    display: inline;
-    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
 }
 
 .star-btn:active {
@@ -335,11 +355,12 @@ th a.current.desc::after {
 .star-btn.disabled {
     opacity: 0.4;
     cursor: default;
+    pointer-events: none;
 }
 
 .star-icon {
-    display: inline;
-    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
 }
 
 .star-inactive .star-icon {
@@ -356,7 +377,6 @@ th a.current.desc::after {
     font-size: 0.85em;
     color: #586069;
     font-weight: 500;
-    margin-left: 4px;
 }
 
 /* Voting Buttons (legacy — kept for reference) */
