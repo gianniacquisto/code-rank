@@ -16,6 +16,6 @@ class SessionsController < ApplicationController
 
   def destroy
     terminate_session
-    redirect_to projects_path
+    redirect_to technologies_path
   end
 end
