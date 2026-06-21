@@ -9,7 +9,7 @@ class StarsController < ApplicationController
 
     respond_to do |format|
       format.turbo_stream
-      format.html { redirect_to @technology }
+      format.html { redirect_to root_path }
     end
   end
 
@@ -20,7 +20,7 @@ class StarsController < ApplicationController
 
     respond_to do |format|
       format.turbo_stream
-      format.html { redirect_to @technology }
+      format.html { redirect_to root_path }
     end
   end
 end

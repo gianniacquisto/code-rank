@@ -3,5 +3,5 @@
 <% end %>
 
 <%= turbo_stream.replace "star-count-#{@technology.id}" do %>
-  <span id="star-count-<%= @technology.id %>"><%= @technology.star_count %></span>
+  <span id="star-count-<%= @technology.id %>"><%= @technology.stars.count %> star<%= "s" if @technology.stars.count != 1 %></span>
 <% end %>
