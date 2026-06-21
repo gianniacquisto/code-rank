@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
   def create
-    @project = Project.find(params[:project_id])
-    @vote = @project.votes.find_or_initialize_by(user: Current.session.user)
+    @technology = Technology.find(params[:technology_id])
+    @vote = @technology.votes.find_or_initialize_by(user: Current.session.user)
     @vote.vote = params[:vote]
     @vote.save
   end
@@ -9,6 +9,6 @@ class VotesController < ApplicationController
   private
 
   def vote_params
-    params.require(:vote).permit(:vote, :project_id)
+    params.require(:vote).permit(:vote, :technology_id)
   end
 end
