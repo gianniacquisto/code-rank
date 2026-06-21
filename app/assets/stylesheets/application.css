@@ -324,67 +324,32 @@ th a.current.desc::after {
     border: none;
     padding: 0;
     cursor: pointer;
-    border-radius: 4px;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-    display: inline-flex;
-    align-items: center;
+    display: inline;
     vertical-align: middle;
-    line-height: 1;
-    flex-shrink: 0;
-}
-
-.star-btn:hover {
-    transform: scale(1.15);
 }
 
 .star-btn:active {
-    transform: scale(0.95);
+    opacity: 0.7;
 }
 
 .star-btn.disabled {
+    opacity: 0.4;
     cursor: default;
-    pointer-events: none;
-    opacity: 0.5;
-}
-
-.star-btn.disabled:hover {
-    transform: none;
 }
 
 .star-icon {
-    transition: fill 0.2s ease, stroke 0.2s ease, color 0.2s ease;
-    display: block;
+    display: inline;
+    vertical-align: middle;
 }
 
 .star-inactive .star-icon {
     fill: none;
     stroke: #61dafb;
-    color: #61dafb;
 }
 
 .star-active .star-icon {
     fill: #f5a623;
     stroke: #f5a623;
-    color: #f5a623;
-}
-
-.star-btn:hover.star-inactive .star-icon {
-    fill: rgba(97, 218, 251, 0.2);
-}
-
-.star-btn:hover.star-active .star-icon {
-    fill: #f7b94e;
-}
-
-/* Star animation on toggle */
-@keyframes star-pop {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.4); }
-    100% { transform: scale(1); }
-}
-
-.star-btn.star-animated {
-    animation: star-pop 0.3s ease-out;
 }
 
 .star-count {
@@ -392,7 +357,6 @@ th a.current.desc::after {
     color: #586069;
     font-weight: 500;
     margin-left: 4px;
-    vertical-align: middle;
 }
 
 /* Voting Buttons (legacy — kept for reference) */
