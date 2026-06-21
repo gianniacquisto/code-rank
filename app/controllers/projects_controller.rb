@@ -11,7 +11,6 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    @project.stars = 0
     if @project.save
       redirect_to @project
     else
@@ -23,5 +22,5 @@ class ProjectsController < ApplicationController
 
   def project_params
       params.expect(project: [ :name, :category, :url ])
-    end
+  end
 end
