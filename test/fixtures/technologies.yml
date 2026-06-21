@@ -1,7 +1,11 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+rails:
+  name: rails
+  github_url: https://github.com/rails/rails
 
-one:
-  name: MyString
+django:
+  name: django
+  github_url: https://github.com/django/django
 
-two:
-  name: MyString
+react:
+  name: react
+  github_url: https://github.com/facebook/react

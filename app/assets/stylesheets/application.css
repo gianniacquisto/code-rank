@@ -317,3 +317,119 @@ th a.current.desc::after {
 .error-messages li {
     margin-bottom: 5px;
 }
+
+/* Star Button Styling */
+.tech-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.tech-header h3 {
+    margin: 0;
+}
+
+.tech-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.star-btn {
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.star-btn:hover {
+    transform: scale(1.15);
+}
+
+.star-btn:active {
+    transform: scale(0.95);
+}
+
+.star-btn.disabled {
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.star-btn.disabled:hover {
+    transform: none;
+}
+
+.star-icon {
+    transition: fill 0.2s ease, stroke 0.2s ease, color 0.2s ease;
+}
+
+.star-inactive .star-icon {
+    fill: none;
+    stroke: #61dafb;
+    color: #61dafb;
+}
+
+.star-active .star-icon {
+    fill: #f5a623;
+    stroke: #f5a623;
+    color: #f5a623;
+}
+
+.star-btn:hover.star-inactive .star-icon {
+    fill: rgba(97, 218, 251, 0.2);
+}
+
+.star-btn:hover.star-active .star-icon {
+    fill: #f7b94e;
+}
+
+/* Star animation on toggle */
+@keyframes star-pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+    100% { transform: scale(1); }
+}
+
+.star-btn.star-animated {
+    animation: star-pop 0.3s ease-out;
+}
+
+.star-count {
+    font-size: 0.9em;
+    color: #586069;
+    font-weight: 500;
+}
+
+/* Voting Buttons (legacy — kept for reference) */
+.voting-buttons {
+    display: inline-flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.vote-up,
+.vote-down {
+    background: none;
+    border: 1px solid #d1d5da;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin: 2px 0;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.vote-up:hover,
+.vote-down:hover {
+    background-color: #f5f5f5;
+}
+
+.vote-up:active,
+.vote-down:active {
+    background-color: #e9ecef;
+}

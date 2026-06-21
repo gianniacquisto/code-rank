@@ -1,0 +1,13 @@
+one:
+  user: one
+  technology: rails
+  starred: true
+  created_at: <%= 2.days.ago %>
+  updated_at: <%= 2.days.ago %>
+
+two:
+  user: two
+  technology: rails
+  starred: true
+  created_at: <%= 1.day.ago %>
+  updated_at: <%= 1.day.ago %>
