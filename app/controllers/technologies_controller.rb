@@ -21,6 +21,6 @@ class TechnologiesController < ApplicationController
   private
 
   def technology_params
-    params.expect(technology: [ :name, :category, :url ])
+    params.expect(technology: [ :name, :github_url ])
   end
 end
