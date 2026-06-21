@@ -1,4 +1,4 @@
-class Project < ApplicationRecord
+class Technology < ApplicationRecord
     has_many :votes, dependent: :destroy
     validates :name, presence: true, uniqueness: true
 
