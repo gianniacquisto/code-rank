@@ -74,4 +74,15 @@ Stored in `.kamal/secrets` (gitignored). Generated from:
 ---
 
 ## Operational Notes
+
+### Deploy lock troubleshooting
+Kamal uses a directory-based lock (`.kamal/lock-code-rank/`). If a GitHub Actions workflow is cancelled mid-deploy, the lock is left behind and blocks subsequent deploys. This is intentional — it prevents two deploys from running concurrently on the same server.
+
+**To clear a stuck lock:**
+```bash
+ssh -i ~/.ssh/id_rsa root@116.203.97.159 'rm -rf .kamal/lock-code-rank'
+```
+
+**Why we don't auto-release the lock:** Adding `kamal lock release` before `kamal deploy` risks concurrent deploys if a previous run is still in progress. A stuck lock is rare and easy to clear; concurrent deploys are dangerous.
+
 - **kamal-proxy version**: Kamal 2.9.0 requires kamal-proxy ≥ v0.9.2. If upgrading kamal locally, update the proxy on the server first: set `.kamal/proxy/image_version` to the desired version, then `docker stop kamal-proxy && docker rm kamal-proxy` on the server, then `bin/kamal proxy boot`.
