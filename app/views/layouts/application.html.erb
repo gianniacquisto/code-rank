@@ -31,7 +31,7 @@
       </div>
       <ul class="nav-links">
         <li><%= link_to "Home", root_path, class: "nav-link" %></li>
-        <li><%= link_to "Add new project", new_project_path, class: "nav-link" %></li>
+        <li><%= link_to "Add new technology", new_technology_path, class: "nav-link" %></li>
       </ul>
       <div class="nav-auth">
         <%= button_to "Log in", session_path, method: :delete, class: "nav-button" unless authenticated? %>
