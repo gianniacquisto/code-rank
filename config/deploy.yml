@@ -94,7 +94,7 @@ ssh:
     user: root
     port: 22 # only change if you use a custom port
     keys:
-        - "~/.ssh/hetzner-pc" # replace with the path to the private key that can auth as gianni
+        - "~/.ssh/id_rsa"
 
 # Use accessory services (secrets come from .kamal/secrets).
 # accessories:
