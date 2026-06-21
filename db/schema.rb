@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_21_143104) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_21_150000) do
   create_table "sessions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "ip_address"
@@ -18,6 +18,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_21_143104) do
     t.string "user_agent"
     t.integer "user_id", null: false
     t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
+
+  create_table "stars", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.boolean "starred", default: false, null: false
+    t.integer "technology_id", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["technology_id"], name: "index_stars_on_technology_id"
+    t.index ["user_id"], name: "index_stars_on_user_id"
   end
 
   create_table "technologies", force: :cascade do |t|
@@ -37,17 +47,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_21_143104) do
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
-  create_table "votes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.integer "technology_id", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id", null: false
-    t.integer "vote"
-    t.index ["technology_id"], name: "index_votes_on_technology_id"
-    t.index ["user_id"], name: "index_votes_on_user_id"
-  end
-
   add_foreign_key "sessions", "users"
-  add_foreign_key "votes", "technologies"
-  add_foreign_key "votes", "users"
+  add_foreign_key "stars", "technologies"
+  add_foreign_key "stars", "users"
 end

@@ -317,3 +317,92 @@ th a.current.desc::after {
 .error-messages li {
     margin-bottom: 5px;
 }
+
+/* Star Button Styling */
+.tech-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.tech-name {
+    color: #0366d6;
+    margin: 0;
+}
+
+.tech-stars {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.star-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+}
+
+.star-btn:active {
+    opacity: 0.7;
+}
+
+.star-btn.disabled {
+    opacity: 0.4;
+    cursor: default;
+    pointer-events: none;
+}
+
+.star-icon {
+    display: inline-flex;
+    align-items: center;
+}
+
+.star-inactive .star-icon {
+    fill: none;
+    stroke: #61dafb;
+}
+
+.star-active .star-icon {
+    fill: #f5a623;
+    stroke: #f5a623;
+}
+
+.star-count {
+    font-size: 0.85em;
+    color: #586069;
+    font-weight: 500;
+}
+
+/* Voting Buttons (legacy — kept for reference) */
+.voting-buttons {
+    display: inline-flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.vote-up,
+.vote-down {
+    background: none;
+    border: 1px solid #d1d5da;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin: 2px 0;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.vote-up:hover,
+.vote-down:hover {
+    background-color: #f5f5f5;
+}
+
+.vote-up:active,
+.vote-down:active {
+    background-color: #e9ecef;
+}

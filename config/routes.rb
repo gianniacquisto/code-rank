@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   resource :session
   resources :passwords, param: :token
   resources :technologies
-  resources :votes
+  resources :technologies do
+    resources :stars, only: [ :create ]
+    delete "stars/unstar", to: "stars#destroy", as: :unstar_star
+  end
   resources :technologies
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
