@@ -16,3 +16,9 @@ test:
 
 production:
   <<: *default
+
+recurring:
+  sitemap_refresh:
+    class: SitemapRefreshJob
+    schedule: every day at 2am
+    queue: default

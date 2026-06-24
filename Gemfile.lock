@@ -295,6 +295,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
+    sitemap_generator (6.3.0)
+      builder (~> 3.0)
     solid_cable (3.0.12)
       actioncable (>= 7.2)
       activejob (>= 7.2)
@@ -381,6 +383,7 @@ DEPENDENCIES
   rails (~> 8.1.0)
   rubocop-rails-omakase
   selenium-webdriver
+  sitemap_generator (~> 6.1)
   solid_cable
   solid_cache
   solid_queue
