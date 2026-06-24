@@ -2,7 +2,9 @@
 
 require "sitemap_generator"
 
-SitemapGenerator::Sitemap.default_host = ENV.fetch("SITE_HOST", "https://code-rank.com")
-SitemapGenerator::Sitemap.sitemaps_host = ENV.fetch("SITE_HOST", "https://code-rank.com")
+# TODO: Consider making SITE_HOST configurable via ENV or credentials
+# if the deployment domain changes (e.g. RPi, staging, etc.)
+SitemapGenerator::Sitemap.default_host = "https://code-rank.com"
+SitemapGenerator::Sitemap.sitemaps_host = "https://code-rank.com"
 SitemapGenerator::Sitemap.sitemaps_path = "sitemap/"
 SitemapGenerator::Sitemap.include_root = false
