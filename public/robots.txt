@@ -1,1 +1,8 @@
 # See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+#
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://code-rank.com/sitemap/sitemap.xml.gz
