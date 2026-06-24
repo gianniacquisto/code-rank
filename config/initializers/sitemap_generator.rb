@@ -8,3 +8,4 @@ SitemapGenerator::Sitemap.default_host = "https://code-rank.com"
 SitemapGenerator::Sitemap.sitemaps_host = "https://code-rank.com"
 SitemapGenerator::Sitemap.sitemaps_path = "sitemap/"
 SitemapGenerator::Sitemap.include_root = false
+SitemapGenerator::Sitemap.compress = false

@@ -5,4 +5,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://code-rank.com/sitemap/sitemap.xml.gz
+Sitemap: https://code-rank.com/sitemap/sitemap.xml
