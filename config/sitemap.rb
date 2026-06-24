@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "technology"
+
 # Root page
 SitemapGenerator::Sitemap.add root_path, priority: 1.0, changefreq: "daily"
 
