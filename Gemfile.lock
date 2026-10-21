@@ -194,7 +194,7 @@ GEM
     parser (3.3.10.0)
       ast (~> 2.4.1)
       racc
-    pp (0.6.3)
+    pp (0.6.4)
       prettyprint
     prettyprint (0.2.0)
     prism (1.9.0)
@@ -345,11 +345,10 @@ GEM
     unicode-emoji (4.1.0)
     uri (1.1.2)
     useragent (0.16.11)
-    web-console (4.2.1)
-      actionview (>= 6.0.0)
-      activemodel (>= 6.0.0)
+    web-console (4.3.0)
+      actionview (>= 8.0.0)
       bindex (>= 0.4.0)
-      railties (>= 6.0.0)
+      railties (>= 8.0.0)
     websocket (1.2.11)
     websocket-driver (0.8.2)
       base64
