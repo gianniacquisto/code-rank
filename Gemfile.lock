@@ -194,7 +194,7 @@ GEM
     parser (3.3.10.0)
       ast (~> 2.4.1)
       racc
-    pp (0.6.3)
+    pp (0.6.4)
       prettyprint
     prettyprint (0.2.0)
     prism (1.9.0)
@@ -335,7 +335,7 @@ GEM
     thruster (0.1.17-x86_64-linux)
     timeout (0.6.1)
     tsort (0.2.0)
-    turbo-rails (2.0.20)
+    turbo-rails (2.0.23)
       actionpack (>= 7.1.0)
       railties (>= 7.1.0)
     tzinfo (2.0.6)
