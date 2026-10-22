@@ -28,8 +28,11 @@
 threads_count = ENV.fetch("RAILS_MAX_THREADS", 3)
 threads threads_count, threads_count
 
-# Specifies the `port` that Puma will listen on to receive requests; default is 3000.
-port ENV.fetch("PORT", 3000)
+# Specifies the address Puma listens on; the port defaults to 3000. Pinned to
+# IPv4 on purpose: Puma 8 defaults to `::` when the host has a non-loopback IPv6
+# interface, and Kamal publishes the container's port over IPv4 NAT, so an
+# IPv6-only bind would be a silent outage on deploy.
+bind "tcp://0.0.0.0:#{ENV.fetch("PORT", 3000)}"
 
 # Allow puma to be restarted by `bin/rails restart` command.
 plugin :tmp_restart
