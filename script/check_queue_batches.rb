@@ -51,7 +51,7 @@ check(!connection.column_exists?(:solid_queue_jobs, :batch_id), "setup should ha
 # The queue migrations must take that shape to 1.7.0.
 pool = ActiveRecord::Base.connection_pool
 context = ActiveRecord::MigrationContext.new(
-  [Rails.root.join("db", "queue_migrate").to_s],
+  [ Rails.root.join("db", "queue_migrate").to_s ],
   pool.schema_migration,
   pool.internal_metadata
 )
