@@ -75,6 +75,11 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Check queue batch schema (scratch DB)
+        env:
+          RAILS_ENV: test
+        run: bin/rails runner script/check_queue_batches.rb
+
       - name: Run tests
         env:
           RAILS_ENV: test
