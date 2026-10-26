@@ -7,6 +7,7 @@ CI.run do
 
   step "Security: Importmap vulnerability audit", "bin/importmap audit"
   step "Security: Brakeman code analysis", "bin/brakeman --quiet --no-pager --exit-on-warn --exit-on-error"
+  step "Tests: Queue batch schema (scratch DB)", "env RAILS_ENV=test bin/rails runner script/check_queue_batches.rb"
   step "Tests: Rails", "bin/rails test"
   step "Tests: Seeds", "env RAILS_ENV=test bin/rails db:seed:replant"
 
